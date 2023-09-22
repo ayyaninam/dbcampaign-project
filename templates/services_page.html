@@ -1,0 +1,178 @@
+{% extends "base.html" %} {% block title %}Our Services - Real Time Contractor
+{% endblock title %} {% block content %} {% load static %}
+<main class="main">
+  {% if not q %}
+
+  <div class="container-xxl">
+    <div class="row">
+      <div
+        class="col-12 col-lg-6 my-34 my-lg-80 my-xl-120 my-xxl-180 order-2 order-lg-1"
+      >
+        <h1 class="heading-header-1 mb-0">
+          The
+          <span class="text-primary">simplest way</span> to get the job done!
+        </h1>
+        <!-- /.heading-header -->
+
+        <form
+          class="ms-auto mt-60"
+          role="search"
+          action="{% url 'services_page' %}"
+          method="get"
+        >
+          <div class="form-btn-inner shadow-2 rounded-pill">
+            <input
+              class="form-control"
+              type="search"
+              placeholder="Search here..."
+              name="q"
+            />
+            <button
+              class="btn btn-primary fw-semiBold py-12 px-20 px-lg-34 flex-nofill shadow-none"
+              type="submit"
+            >
+              Search Service
+            </button>
+          </div>
+        </form>
+        <!-- /.search-job-form -->
+        <!-- /.search-suggestion -->
+      </div>
+      <!-- /.col -->
+
+      <div class="col-12 col-lg-6 order-1 order-lg-2">
+        <div class="position-relative h-lg-100">
+          <img
+            src="{% static 'assets/pages/joblist/header/heroImage.png' %}"
+            class="hero-image-img"
+            alt=""
+          />
+        </div>
+      </div>
+
+      <!-- /.col -->
+    </div>
+    <!-- /.row -->
+  </div>
+
+  {% endif %}
+
+  <div class="mt-43"></div>
+  <div class="container-xxl py-60">
+    <div class="d-flex flex-column flex-xl-row align-items-xl-center gap-20">
+      {% if q %}
+
+      <h3 class="heading-section-3 text-dark mb-0">Your Search Results</h3>
+      {%else%}
+      <h3 class="heading-section-3 text-dark mb-0">Our Featured Services</h3>
+
+      {%endif%}
+      <div
+        class="d-flex flex-column flex-md-row align-items-md-center w-100 w-xl-auto ms-auto gap-15 gap-md-34"
+      >
+        <h6 class="heading-section-6 text-dark mb-0">
+          Showing <span class="text-primary">{{services.count}}</span>
+        </h6>
+      </div>
+    </div>
+    <div class="row mt-60">
+      {% if services %} {% for service in services %}
+
+      <div class="col-12 col-md-6 col-xl-4 my-15">
+        <div class="event-card">
+          <div class="event-thumb">
+            <img
+              src="{{service.image.url}}"
+              alt=""
+            />
+          </div>
+          <div class="event-content">
+            <div class="event-content-header">
+              <div class="event-content-date-book">
+                <div class="event-date">
+                  <span class="text-accent">NEW</span>
+                </div>
+                {% if service.id in hearted %}
+                <button
+                  class="btn btn-event-book"
+                  type="button"
+                  id="heart_btn_id_{{service.id}}"
+                  style="background-color: #ff477e"
+                  onclick="heart_btn_clicked({{service.id}})"
+                  value="hearted"
+                >
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    data-inject-url="https://peterdraw.studio/ziro-html/assets/icons/heart.svg"
+                    class="svg-inject"
+                  >
+                    <path
+                      d="M14.6875 2C12.3186 2 10.7965 3.55012 10 4.94285C9.20348 3.55012 7.68145 2 5.3125 2C2.30613 2 0 4.30254 0 7.35641C0 10.6678 2.88922 12.9228 7.20363 16.3371C9.31621 18.0075 9.45195 18.1345 10 18.575C10.4473 18.2155 10.6948 17.9988 12.7964 16.3371C17.1108 12.9228 20 10.6678 20 7.35641C20 4.30258 17.6939 2 14.6875 2Z"
+                    ></path>
+                  </svg>
+                </button>
+
+                {%else%}
+
+                <button
+                  class="btn btn-event-book"
+                  type="button"
+                  id="heart_btn_id_{{service.id}}"
+                  onclick="heart_btn_clicked({{service.id}})"
+                  value="non_hearted"
+
+                >
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    data-inject-url="https://peterdraw.studio/ziro-html/assets/icons/heart.svg"
+                    class="svg-inject"
+                  >
+                    <path
+                      d="M14.6875 2C12.3186 2 10.7965 3.55012 10 4.94285C9.20348 3.55012 7.68145 2 5.3125 2C2.30613 2 0 4.30254 0 7.35641C0 10.6678 2.88922 12.9228 7.20363 16.3371C9.31621 18.0075 9.45195 18.1345 10 18.575C10.4473 18.2155 10.6948 17.9988 12.7964 16.3371C17.1108 12.9228 20 10.6678 20 7.35641C20 4.30258 17.6939 2 14.6875 2Z"
+                    ></path>
+                  </svg>
+                </button>
+
+                {%endif%}
+              </div>
+              <div class="event-content-info">
+                <!--
+                <div class="event-categories">
+                  <a class="event-categories-link" href="#">Mobile App</a>
+                </div> 
+                -->
+                <h2 class="event-title event-categories">
+                  <a class="event-title-link" href="{% url 'service_detail_page' service.id %}">{{service.title}}</a>
+                </h2>
+              </div>
+            </div>
+            <div class="event-content-footer">
+              <div class="event-summary">
+                <p>{{service.desc|slice:"0:120"}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /.event-card-grid-component -->
+      </div>
+      {% endfor %} {% else %}
+
+      <h1 class="heading-header-1 mb-0 m-auto d-flex justify-content-center">
+        No
+        <span class="text-accent">Service</span> Found!
+      </h1>
+
+      {% endif %}
+    </div>
+  </div>
+</main>
+
+{% endblock content %}

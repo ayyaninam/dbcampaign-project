@@ -1,0 +1,340 @@
+{% extends 'base.html' %} {% load static %} {% block title %} Service Detail {% endblock title %} {% block content %}
+<main class="main position-relative">
+  <div class="detail-header-background">
+    <img
+      src="{% static 'assets/pages/jobdetail/header/header-bg.png'%}"
+      alt=""
+    />
+  </div>
+  <!-- /.detail-background -->
+
+  <div class="container-xxl">
+    <div class="position-relative py-43 py-lg-80">
+      <div class="d-grid gap-10 text-center">
+        <h4 class="heading-section-4 text-white mb-0">Service Details</h4>
+      </div>
+      <!-- /.heading-header -->
+      <!-- 
+					<a class="position-absolute btn btn-rounded btn-white top-0 top-md-50 top-md start-0 translate-middle-md-y p-10 mt-15 mt-md-0" href="https://peterdraw.studio/">
+						<img src="{% static 'assets/icons/long-arrow-left.svg' %}" class="svg-inject text-dark is-20" alt="" />
+					</a>
+                    -->
+      <!-- /.btn-back -->
+      <!-- 
+					<button class="btn btn-rounded btn-book position-absolute d-md-none top-100 start-85 translate-middle">
+						<img src="{% static 'assets/icons/heart.svg' %}" class="svg-inject svg-icon" alt="" />
+					</button>
+                    -->
+      <!-- /.btn-book-mobile -->
+    </div>
+  </div>
+  <!-- /.container -->
+  <!-- = /. Header Section = -->
+
+  <div class="container-xxl">
+    <div class="row">
+
+      <div
+        class="col-12 col-lg-8 col-xl-9 order-lg-2 d-flex justify-content-center align-center m-auto"
+      >
+        <div
+          class="d-grid bg-white p-20 p-md-34 p-xxl-43 gap-34 rounded-20 shadow-2"
+        >
+ {% if messages %}
+        {% for message in messages %}
+        <h4 class="auth__tagline mt-34 d-flex justify-content-center" style="color: rgb(255, 86, 86);">
+          {{message}}
+        </h4>
+        {% endfor %}
+        {% endif %}
+          <div class="d-flex align-items-center">
+
+		  				       
+            <div class="d-grid gap-10">
+			
+              <h1 class="heading-section-1 text-dark mb-0">
+                {{service.title}}
+              </h1>
+            </div>
+            <!-- /.job-title and job-meta -->
+
+            <div
+              class="d-none d-md-flex align-items-md-center gap-10 gap-xl-20 ms-auto ps-20"
+            >
+              <!-- /.btn-apply -->
+
+              {% if service.id in hearted %}
+
+              <button
+                class="btn btn-rounded btn-book"
+                value="hearted"
+                id="heart_btn_id_{{service.id}}"
+                onclick="heart_btn_clicked({{service.id}})"
+              >
+                <img
+                  src="{% static 'assets/icons/heart.svg' %}"
+                  class="svg-inject svg-icon"
+                  alt=""
+                />
+              </button>
+
+              {%else %}
+              <button
+                style="background-color: #4c4e5c"
+                class="btn btn-rounded btn-book"
+                value="non_hearted"
+                id="heart_btn_id_{{service.id}}"
+                onclick="heart_btn_clicked({{service.id}})"
+              >
+                <img
+                  src="{% static 'assets/icons/heart.svg' %}"
+                  class="svg-inject svg-icon"
+                  alt=""
+                />
+              </button>
+              {%endif%}
+              <!-- /.btn-book -->
+            </div>
+            <!-- end action-btn-desktop -->
+          </div>
+
+          <div class="d-grid gap-15">
+            <div class="fs-14 fw-semiBold">Service Description</div>
+            <div class="fs-16">
+              <p>{{service.desc}}</p>
+            </div>
+          </div>
+          <!-- /.job-description -->
+
+          <!-- /.job-gallery-slider -->
+          <div class="form_section">
+            <h2
+              class="d-flex justify-content-center align-center heading-section-2 text-dark mb-0"
+            >
+              Fill Out the Form
+            </h2>
+            <form method="POST" action="{% url 'leads_collector' service.id %}" >
+			{% csrf_token %}
+              <div class="mb-20">
+                <label for="name__input" class="form-label"
+                  >Name</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="name__input"
+                  name="name__input"
+                />
+ 
+              </div>
+			  
+              <div class="mb-20">
+                <label for="email__input" class="form-label"
+                  >Email address</label
+                >
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email__input"
+                  name="email__input"
+                  aria-describedby="emailHelp"
+                />
+          
+              </div>
+			  
+              <div class="mb-20">
+                <label for="phone__input" class="form-label"
+                  >Phone Number</label
+                >
+                <input
+                  type="number"
+                  class="form-control"
+                  id="phone__input"
+                  name="phone__input"
+				  pattern="[0-9]{3}[0-9]{3}[0-9]{4}"
+                />
+           
+              </div>
+			  
+              <div class="mb-3">
+                <label for="desc__input" class="form-label"
+                  >Description of Work you need to done!</label
+                >
+				<textarea type="textarea" class="form-control" id="desc__input" name="desc__input" cols="30" rows="10"></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary mt-34">Submit</button>
+            </form>
+
+
+          </div>
+          <!-- /.btn-apply-mobile -->
+
+          <div class="mt-34"></div>
+          <!-- /.gap -->
+        </div>
+      </div>
+    </div>
+    <!-- /.row -->
+  </div>
+  <!-- /.container -->
+  <!-- = /. Main Section = -->
+
+  <div class="mt-xl-43"></div>
+  <!-- = /. Gap Section = -->
+
+  <div class="container-xxl py-60">
+    <div class="d-grid gap-12 w-md-50 w-xl-34 mb-60 mx-auto">
+      <h2 class="heading-section-3 text-dark text-center mb-0">
+        Related Services
+      </h2>
+      <div class="heading-text-2 lh-base text-dark text-center">
+        Showing {{related_services.count}} Services
+      </div>
+    </div>
+    <!-- /.heading-section -->
+
+    <div class="row">
+     {% if related_services %} {% for service in related_services %}
+
+      <div class="col-12 col-md-6 col-xl-4 my-15">
+        <div class="event-card">
+          <div class="event-thumb">
+            <img
+              src="{{service.image.url}}"
+              alt=""
+            />
+          </div>
+          <div class="event-content">
+            <div class="event-content-header">
+              <div class="event-content-date-book">
+                <div class="event-date">
+                  <span class="text-accent">NEW</span>
+                </div>
+                {% if service.id in hearted %}
+                <button
+                  class="btn btn-event-book"
+                  type="button"
+                  id="heart_btn_id_{{service.id}}"
+                  style="background-color: #ff477e"
+                  onclick="heart_btn_clicked({{service.id}})"
+                  value="hearted"
+                >
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    data-inject-url="https://peterdraw.studio/ziro-html/assets/icons/heart.svg"
+                    class="svg-inject"
+                  >
+                    <path
+                      d="M14.6875 2C12.3186 2 10.7965 3.55012 10 4.94285C9.20348 3.55012 7.68145 2 5.3125 2C2.30613 2 0 4.30254 0 7.35641C0 10.6678 2.88922 12.9228 7.20363 16.3371C9.31621 18.0075 9.45195 18.1345 10 18.575C10.4473 18.2155 10.6948 17.9988 12.7964 16.3371C17.1108 12.9228 20 10.6678 20 7.35641C20 4.30258 17.6939 2 14.6875 2Z"
+                    ></path>
+                  </svg>
+                </button>
+
+                {%else%}
+
+                <button
+                  class="btn btn-event-book"
+                  type="button"
+                  id="heart_btn_id_{{service.id}}"
+                  onclick="heart_btn_clicked({{service.id}})"
+                  value="non_hearted"
+
+                >
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    data-inject-url="https://peterdraw.studio/ziro-html/assets/icons/heart.svg"
+                    class="svg-inject"
+                  >
+                    <path
+                      d="M14.6875 2C12.3186 2 10.7965 3.55012 10 4.94285C9.20348 3.55012 7.68145 2 5.3125 2C2.30613 2 0 4.30254 0 7.35641C0 10.6678 2.88922 12.9228 7.20363 16.3371C9.31621 18.0075 9.45195 18.1345 10 18.575C10.4473 18.2155 10.6948 17.9988 12.7964 16.3371C17.1108 12.9228 20 10.6678 20 7.35641C20 4.30258 17.6939 2 14.6875 2Z"
+                    ></path>
+                  </svg>
+                </button>
+
+                {%endif%}
+				</div>
+              <div class="event-content-info">
+                <!--
+                <div class="event-categories">
+                  <a class="event-categories-link" href="#">Mobile App</a>
+                </div> 
+                -->
+                <h2 class="event-title event-categories">
+                  <a class="event-title-link" href="{% url 'service_detail_page' service.id %}">{{service.title}}</a>
+                </h2>
+              </div>
+            </div>
+            <div class="event-content-footer">
+              <div class="event-summary">
+                <p>{{service.desc|slice:"0:120"}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /.event-card-grid-component -->
+      </div>
+      {% endfor %} {% else %}
+
+      <h1 class="heading-header-1 mb-0 m-auto d-flex justify-content-center">
+        No
+        <span class="text-accent">Service</span> Found!
+      </h1>
+
+      {% endif %}
+
+    </div>
+    <!-- /.row -->
+
+    <div class="d-flex">
+      <a
+        class="btn btn-primary fw-semiBold py-12 px-43 mt-60 mx-auto rounded-pill"
+        href="{% url 'services_page' %}"
+        role="button"
+        >View more</a
+      >
+    </div>
+    <!-- /.btn-more -->
+  </div>
+  <!-- /.container -->
+  <!-- = /. Featured Jobs Section = -->
+
+  <div class="mt-xl-43"></div>
+  <!-- = /. Gap Section = -->
+
+  <div class="container py-60 py-lg-100">
+    <div class="swiper image-slider client-logo-slider mx-xl-34 mx-xxl-80">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="assets/client-logo/client-logo-1.png" alt="" />
+        </div>
+
+        <div class="swiper-slide">
+          <img src="assets/client-logo/client-logo-2.png" alt="" />
+        </div>
+
+        <div class="swiper-slide">
+          <img src="assets/client-logo/client-logo-3.png" alt="" />
+        </div>
+
+        <div class="swiper-slide">
+          <img src="assets/client-logo/client-logo-4.png" alt="" />
+        </div>
+
+        <div class="swiper-slide">
+          <img src="assets/client-logo/client-logo-5.png" alt="" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- = /. Logo Client Section = -->
+</main>
+{% endblock content %}

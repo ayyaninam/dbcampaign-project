@@ -1,0 +1,88 @@
+ERROR 2023-09-20 13:20:10,917 log 19968 25528 Internal Server Error: /leads-collector/1
+Traceback (most recent call last):
+  File "C:\Python39\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Python39\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python39\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Clients\dbcampaign\developing_project\base\views.py", line 95, in leads_collector
+    mail_sender("h","h","h")
+  File "E:\Clients\dbcampaign\developing_project\base\tasks.py", line 8, in mail_sender
+    send_mail(
+  File "C:\Python39\lib\site-packages\django\core\mail\__init__.py", line 60, in send_mail
+    return mail.send()
+  File "C:\Python39\lib\site-packages\django\core\mail\message.py", line 276, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "C:\Python39\lib\site-packages\django\core\mail\backends\smtp.py", line 102, in send_messages
+    new_conn_created = self.open()
+  File "C:\Python39\lib\site-packages\django\core\mail\backends\smtp.py", line 62, in open
+    self.connection = self.connection_class(self.host, self.port, **connection_params)
+  File "C:\Python39\lib\smtplib.py", line 255, in __init__
+    (code, msg) = self.connect(host, port)
+  File "C:\Python39\lib\smtplib.py", line 341, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+  File "C:\Python39\lib\smtplib.py", line 312, in _get_socket
+    return socket.create_connection((host, port), timeout,
+  File "C:\Python39\lib\socket.py", line 823, in create_connection
+    for res in getaddrinfo(host, port, 0, SOCK_STREAM):
+  File "C:\Python39\lib\socket.py", line 954, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11001] getaddrinfo failed
+ERROR 2023-09-20 13:20:10,922 basehttp 19968 25528 "POST /leads-collector/1 HTTP/1.1" 500 116866
+ERROR 2023-09-20 13:23:16,941 log 3356 18784 Internal Server Error: /leads-collector/1
+Traceback (most recent call last):
+  File "C:\Python39\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Python39\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python39\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Clients\dbcampaign\developing_project\base\views.py", line 95, in leads_collector
+    mail_sender("h","h","h")
+  File "E:\Clients\dbcampaign\developing_project\base\tasks.py", line 8, in mail_sender
+    send_mail(
+  File "C:\Python39\lib\site-packages\django\core\mail\__init__.py", line 60, in send_mail
+    return mail.send()
+  File "C:\Python39\lib\site-packages\django\core\mail\message.py", line 276, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "C:\Python39\lib\site-packages\django\core\mail\backends\smtp.py", line 102, in send_messages
+    new_conn_created = self.open()
+  File "C:\Python39\lib\site-packages\django\core\mail\backends\smtp.py", line 69, in open
+    self.connection.login(self.username, self.password)
+  File "C:\Python39\lib\smtplib.py", line 750, in login
+    raise last_exception
+  File "C:\Python39\lib\smtplib.py", line 739, in login
+    (code, resp) = self.auth(
+  File "C:\Python39\lib\smtplib.py", line 662, in auth
+    raise SMTPAuthenticationError(code, resp)
+smtplib.SMTPAuthenticationError: (535, b'5.7.8 Username and Password not accepted. Learn more at\n5.7.8  https://support.google.com/mail/?p=BadCredentials y20-20020a1c4b14000000b003feee8d8011sm1257057wma.41 - gsmtp')
+ERROR 2023-09-20 13:23:16,945 basehttp 3356 18784 "POST /leads-collector/1 HTTP/1.1" 500 112337
+ERROR 2023-09-20 13:28:05,938 log 3356 18784 Internal Server Error: /leads-collector/1
+Traceback (most recent call last):
+  File "C:\Python39\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Python39\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python39\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Clients\dbcampaign\developing_project\base\views.py", line 95, in leads_collector
+    mail_sender("h","h","h")
+  File "E:\Clients\dbcampaign\developing_project\base\tasks.py", line 8, in mail_sender
+    send_mail(
+  File "C:\Python39\lib\site-packages\django\core\mail\__init__.py", line 60, in send_mail
+    return mail.send()
+  File "C:\Python39\lib\site-packages\django\core\mail\message.py", line 276, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "C:\Python39\lib\site-packages\django\core\mail\backends\smtp.py", line 102, in send_messages
+    new_conn_created = self.open()
+  File "C:\Python39\lib\site-packages\django\core\mail\backends\smtp.py", line 69, in open
+    self.connection.login(self.username, self.password)
+  File "C:\Python39\lib\smtplib.py", line 750, in login
+    raise last_exception
+  File "C:\Python39\lib\smtplib.py", line 739, in login
+    (code, resp) = self.auth(
+  File "C:\Python39\lib\smtplib.py", line 662, in auth
+    raise SMTPAuthenticationError(code, resp)
+smtplib.SMTPAuthenticationError: (535, b'5.7.8 Username and Password not accepted. Learn more at\n5.7.8  https://support.google.com/mail/?p=BadCredentials k8-20020a5d4288000000b00317a29af4b2sm17835580wrq.68 - gsmtp')
+ERROR 2023-09-20 13:28:05,941 basehttp 3356 18784 "POST /leads-collector/1 HTTP/1.1" 500 112337

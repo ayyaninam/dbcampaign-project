@@ -1,0 +1,301 @@
+{% extends "base.html" %} {% load static %} {% block title %}Find Real
+Contractor{% endblock title %} {% block content %}
+<main class="main">
+  <div class="bg-ghost-white">
+    <div class="container-xxl">
+      <div class="row">
+        <div
+          class="col-12 col-lg-6 col-xl-5 d-flex align-items-center my-34 my-lg-60 my-xl-120 order-2 order-lg-1"
+        >
+          <div class="swiper header-slider">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <h1 class="heading-header-1 mb-0">
+                  The
+                  <span class="text-primary">simplest way</span> to get the job done!
+                </h1>
+                <!--
+                <div class="heading-text-2">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </div>
+                -->
+              </div>
+<!--
+              <div class="swiper-slide">
+                <h1 class="heading-header-1">
+                  Flexible <span class="text-primary">job</span> with reasonable
+                  payment
+                </h1>
+                <div class="heading-text-2">
+                  Make your website more attractive and marketable to attract
+                  more audiences, freelancers, and employers
+                </div>
+              </div>
+              -->
+            </div>
+            <!-- /.header-slider-content -->
+
+            <div class="d-flex flex-wrap align-items-center mt-60 gap-20">
+              <a
+                class="btn btn-primary fw-semiBold py-12 px-34 rounded-pill"
+                href="{% url 'services_page' %}"
+                role="button"
+                >Find Services</a>
+              <a
+                class="btn btn-alice-blue text-dark fw-semiBold py-12 px-34 rounded-pill"
+                href="{% url 'services_page' %}"
+                role="button"
+                >Contact us</a>
+              
+            </div>
+            <!-- /.btn-discover-now and watch-video -->
+
+            <div
+              class="pagination-slider pagination-line header-slider-pagination mt-60"
+            ></div>
+            <!-- /.header-slider-pagination -->
+          </div>
+          <!-- /.header-slider -->
+        </div>
+        <!-- /.col -->
+
+        <div class="col-12 col-lg-6 col-xl-7 order-1 order-lg-2">
+          <div class="position-relative h-lg-100">
+            <img
+              src="assets/pages/index/header/heroImage.png"
+              class="hero-image-img"
+              alt=""
+            />
+            <!-- /. hero-image -->
+          </div>
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container -->
+  </div>
+
+  <div class="mt-xl-43"></div>
+  <!-- = /. Gap Section = -->
+
+  <div class="container-xxl py-60">
+    <div class="d-grid w-md-50 w-xl-34 mb-60 mx-auto gap-12">
+      <h2 class="heading-section-3 text-dark text-center mb-0">
+        Why Choose Us
+      </h2>
+      <div class="heading-text-2 lh-base text-dark text-center">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua
+      </div>
+    </div>
+    <!-- /.heading-section -->
+
+    <div class="row w-xl-85 mx-auto">
+      <div class="col-12 col-md-6 col-lg-4 my-12">
+        <div class="card card-icon">
+          <div class="card-box-icon bg-outrageous-orange text-white">
+            <svg
+              width="70%"
+              height="70%"
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9.0879 8.87113C8.58387 9.36316 8.58387 10.1606 9.0879 10.6523C9.59153 11.1443 10.4089 11.1443 10.9125 10.6523C11.4165 10.1603 11.4165 9.36277 10.9125 8.87113C10.4085 8.37949 9.59153 8.37949 9.0879 8.87113ZM10 0C4.47702 0 0 4.37042 0 9.7619C0 15.1534 4.47702 19.5238 10 19.5238C15.523 19.5238 20 15.1534 20 9.7619C20 4.37042 15.523 0 10 0ZM15.0863 5.82762L12.4262 11.5096C12.2975 11.7844 12.0718 12.0047 11.7903 12.1303L5.97016 14.7271C5.29879 15.0266 4.60685 14.3512 4.91371 13.6958L7.57419 8.01382C7.70286 7.73903 7.92859 7.51867 8.21008 7.39307L14.0302 4.79632C14.7016 4.49717 15.3931 5.17224 15.0863 5.82762V5.82762Z"
+              />
+            </svg>
+          </div>
+          <h5 class="card-title">Trusted</h5>
+          <p class="card-text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+        </div>
+        <!-- /.card-icon-component -->
+      </div>
+      <!-- /.col -->
+
+      <div class="col-12 col-md-6 col-lg-4 my-12">
+        <div class="card card-icon">
+          <div class="card-box-icon bg-medium-orchid text-white">
+            <svg
+              width="70%"
+              height="70%"
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9.0879 8.87113C8.58387 9.36316 8.58387 10.1606 9.0879 10.6523C9.59153 11.1443 10.4089 11.1443 10.9125 10.6523C11.4165 10.1603 11.4165 9.36277 10.9125 8.87113C10.4085 8.37949 9.59153 8.37949 9.0879 8.87113ZM10 0C4.47702 0 0 4.37042 0 9.7619C0 15.1534 4.47702 19.5238 10 19.5238C15.523 19.5238 20 15.1534 20 9.7619C20 4.37042 15.523 0 10 0ZM15.0863 5.82762L12.4262 11.5096C12.2975 11.7844 12.0718 12.0047 11.7903 12.1303L5.97016 14.7271C5.29879 15.0266 4.60685 14.3512 4.91371 13.6958L7.57419 8.01382C7.70286 7.73903 7.92859 7.51867 8.21008 7.39307L14.0302 4.79632C14.7016 4.49717 15.3931 5.17224 15.0863 5.82762V5.82762Z"
+              />
+            </svg>
+          </div>
+          <h5 class="card-title">Easy to Use</h5>
+          <p class="card-text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+        </div>
+        <!-- /.card-icon-component -->
+      </div>
+      <!-- /.col -->
+
+      <div class="col-12 col-md-6 offset-md-3 col-lg-4 offset-lg-0 my-12">
+        <div class="card card-icon">
+          <div class="card-box-icon bg-picton-blue text-white">
+            <svg
+              width="70%"
+              height="70%"
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9.0879 8.87113C8.58387 9.36316 8.58387 10.1606 9.0879 10.6523C9.59153 11.1443 10.4089 11.1443 10.9125 10.6523C11.4165 10.1603 11.4165 9.36277 10.9125 8.87113C10.4085 8.37949 9.59153 8.37949 9.0879 8.87113ZM10 0C4.47702 0 0 4.37042 0 9.7619C0 15.1534 4.47702 19.5238 10 19.5238C15.523 19.5238 20 15.1534 20 9.7619C20 4.37042 15.523 0 10 0ZM15.0863 5.82762L12.4262 11.5096C12.2975 11.7844 12.0718 12.0047 11.7903 12.1303L5.97016 14.7271C5.29879 15.0266 4.60685 14.3512 4.91371 13.6958L7.57419 8.01382C7.70286 7.73903 7.92859 7.51867 8.21008 7.39307L14.0302 4.79632C14.7016 4.49717 15.3931 5.17224 15.0863 5.82762V5.82762Z"
+              />
+            </svg>
+          </div>
+          <h5 class="card-title">Faster</h5>
+          <p class="card-text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+        </div>
+        <!-- /.card-icon-component -->
+      </div>
+      <!-- /.col -->
+    </div>
+    <!-- /.row -->
+  </div>
+
+
+    <div class="mt-43"></div>
+  <div class="container-xxl py-60">
+    <div class="d-grid gap-12 w-md-50 w-xl-34 mb-60 mx-auto">
+      <h2 class="heading-section-3 text-dark text-center mb-0">
+        Related Services
+      </h2>
+      <div class="heading-text-2 lh-base text-dark text-center">
+        Showing {{related_services.count}} Services
+      </div>
+    </div>
+    <!-- /.heading-section -->
+
+    <div class="row">
+     {% if related_services %} {% for service in related_services %}
+
+      <div class="col-12 col-md-6 col-xl-4 my-15">
+        <div class="event-card">
+          <div class="event-thumb">
+            <img
+              src="{{service.image.url}}"
+              alt=""
+            />
+          </div>
+          <div class="event-content">
+            <div class="event-content-header">
+              <div class="event-content-date-book">
+                <div class="event-date">
+                  <span class="text-accent">NEW</span>
+                </div>
+                {% if service.id in hearted %}
+                <button
+                  class="btn btn-event-book"
+                  type="button"
+                  id="heart_btn_id_{{service.id}}"
+                  style="background-color: #ff477e"
+                  onclick="heart_btn_clicked({{service.id}})"
+                  value="hearted"
+                >
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    data-inject-url="https://peterdraw.studio/ziro-html/assets/icons/heart.svg"
+                    class="svg-inject"
+                  >
+                    <path
+                      d="M14.6875 2C12.3186 2 10.7965 3.55012 10 4.94285C9.20348 3.55012 7.68145 2 5.3125 2C2.30613 2 0 4.30254 0 7.35641C0 10.6678 2.88922 12.9228 7.20363 16.3371C9.31621 18.0075 9.45195 18.1345 10 18.575C10.4473 18.2155 10.6948 17.9988 12.7964 16.3371C17.1108 12.9228 20 10.6678 20 7.35641C20 4.30258 17.6939 2 14.6875 2Z"
+                    ></path>
+                  </svg>
+                </button>
+
+                {%else%}
+
+                <button
+                  class="btn btn-event-book"
+                  type="button"
+                  id="heart_btn_id_{{service.id}}"
+                  onclick="heart_btn_clicked({{service.id}})"
+                  value="non_hearted"
+
+                >
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    data-inject-url="https://peterdraw.studio/ziro-html/assets/icons/heart.svg"
+                    class="svg-inject"
+                  >
+                    <path
+                      d="M14.6875 2C12.3186 2 10.7965 3.55012 10 4.94285C9.20348 3.55012 7.68145 2 5.3125 2C2.30613 2 0 4.30254 0 7.35641C0 10.6678 2.88922 12.9228 7.20363 16.3371C9.31621 18.0075 9.45195 18.1345 10 18.575C10.4473 18.2155 10.6948 17.9988 12.7964 16.3371C17.1108 12.9228 20 10.6678 20 7.35641C20 4.30258 17.6939 2 14.6875 2Z"
+                    ></path>
+                  </svg>
+                </button>
+
+                {%endif%}
+				</div>
+              <div class="event-content-info">
+                <!--
+                <div class="event-categories">
+                  <a class="event-categories-link" href="#">Mobile App</a>
+                </div> 
+                -->
+                <h2 class="event-title event-categories">
+                  <a class="event-title-link" href="{% url 'service_detail_page' service.id %}">{{service.title}}</a>
+                </h2>
+              </div>
+            </div>
+            <div class="event-content-footer">
+              <div class="event-summary">
+                <p>{{service.desc|slice:"0:120"}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /.event-card-grid-component -->
+      </div>
+      {% endfor %} {% else %}
+
+      <h1 class="heading-header-1 mb-0 m-auto d-flex justify-content-center">
+        No
+        <span class="text-accent">Service</span> Found!
+      </h1>
+
+      {% endif %}
+
+    </div>
+    <!-- /.row -->
+
+    <div class="d-flex">
+      <a
+        class="btn btn-primary fw-semiBold py-12 px-43 mt-60 mx-auto rounded-pill"
+        href="{% url 'services_page' %}"
+        role="button"
+        >View more</a
+      >
+    </div>
+    <!-- /.btn-more -->
+  </div>
+
+
+</main>
+
+{% endblock content %}
