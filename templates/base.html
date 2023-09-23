@@ -15,6 +15,7 @@
       href="{% static 'css/swiper/swiper-bundle.min.css' %}"
     />
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/new_style.css' %}" />
 
     <title>{% block title %}{% endblock title %}</title>
   </head>
@@ -47,12 +48,19 @@
           >
             <ul class="navbar-nav mx-xl-auto order-2 order-xl-1">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{% url 'homepage' %}"
-                  >Home</a
-                >
+              {% if request.path == "/" %}
+                <a class="nav-link active" aria-current="page" href="{% url 'homepage' %}">Home</a>
+                {%else%}
+                <a class="nav-link" aria-current="page" href="{% url 'homepage' %}">Home</a>
+                {%endif%}
               </li>
               <li class="nav-item">
+              {% if request.path == "/services" %}
+                <a class="nav-link active" href="{% url 'services_page' %}">Services</a>
+                {%else%}
                 <a class="nav-link" href="{% url 'services_page' %}">Services</a>
+                {%endif%}
+
               </li>
           
             </ul>
@@ -89,18 +97,21 @@
         <div class="row py-25 py-lg-43 py-xl-80 align-items-md-center">
           <div class="col-12 col-md-6">
             <h2 class="heading-section-2 text-white mb-0">
-              Don't miss our weekly updates about freelancer career
+              Don't Miss our New Updates with NewsLetter
             </h2>
             <!-- /.newsletter-heading -->
           </div>
           <!-- /.col -->
 
           <div class="col-12 col-md-6 col-lg-5 offset-lg-1 mt-25 mt-md-0">
-            <form class="ms-auto" action="#">
+       
+            <form class="ms-auto" action="{% url 'newsletter_emails_collector' %}" method="POST">
+            {% csrf_token %}
               <div class="form-btn-inner form-newsletter rounded-pill">
                 <input
                   class="form-control"
                   type="email"
+                  name="email_newsletter__input"
                   placeholder="Enter your email address..."
                 />
                 <button
@@ -109,8 +120,17 @@
                 >
                   Subscribe
                 </button>
+                 
+                
               </div>
             </form>
+               {% if messages %}
+        {% for message in messages %}
+        <h4 class="auth__tagline mt-34 d-flex justify-content-center" style="color: rgb(26, 192, 0);">
+          {{message}}
+        </h4>
+        {% endfor %}
+        {% endif %}
             <!-- /.newsletter-form -->
           </div>
           <!-- /.col -->

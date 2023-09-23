@@ -1,0 +1,41 @@
+.main__top__menu{
+    background: url('/static/branding/TLC%20Headers-2.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    position: relative;
+
+    width: 100%;
+    /* height: 100%; */
+}
+
+.header-slider{
+    margin: 0 4rem;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+    .header-slider{
+    text-align: center;
+
+    }
+    .service__page__main__search__form{
+        display: block;
+        background-color: transparent;
+    }
+    .service__page__main__search__form input{
+        background-color: rgb(255, 255, 255) !important;
+        padding: 20px 30px !important;
+        margin: 10px 0 !important;
+    }
+    .service__page__main__search__form button{
+        display: flex;
+        margin: auto;
+    }
+
+    .two__btn__main__page{
+        justify-content: center;
+    }
+}

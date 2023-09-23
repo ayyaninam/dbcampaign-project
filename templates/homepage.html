@@ -1,9 +1,10 @@
 {% extends "base.html" %} {% load static %} {% block title %}Find Real
 Contractor{% endblock title %} {% block content %}
+
 <main class="main">
   <div class="bg-ghost-white">
-    <div class="container-xxl">
-      <div class="row">
+    <div class="">
+      <div class="row main__top__menu">
         <div
           class="col-12 col-lg-6 col-xl-5 d-flex align-items-center my-34 my-lg-60 my-xl-120 order-2 order-lg-1"
         >
@@ -36,7 +37,7 @@ Contractor{% endblock title %} {% block content %}
             </div>
             <!-- /.header-slider-content -->
 
-            <div class="d-flex flex-wrap align-items-center mt-60 gap-20">
+            <div class="d-flex flex-wrap align-items-center mt-60 gap-20 two__btn__main__page">
               <a
                 class="btn btn-primary fw-semiBold py-12 px-34 rounded-pill"
                 href="{% url 'services_page' %}"
@@ -58,18 +59,19 @@ Contractor{% endblock title %} {% block content %}
           </div>
           <!-- /.header-slider -->
         </div>
-        <!-- /.col -->
+        <!-- /.side image -->
+<!--
 
         <div class="col-12 col-lg-6 col-xl-7 order-1 order-lg-2">
           <div class="position-relative h-lg-100">
             <img
-              src="assets/pages/index/header/heroImage.png"
+              src="{% static 'branding/TLC Headers-2.png' %}"
               class="hero-image-img"
               alt=""
             />
-            <!-- /. hero-image -->
           </div>
         </div>
+        -->
         <!-- /.col -->
       </div>
       <!-- /.row -->

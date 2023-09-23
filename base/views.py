@@ -4,6 +4,7 @@ from .models import *
 from django.http import JsonResponse
 from django.contrib import messages
 from.tasks import *
+from django.http import HttpResponseRedirect
 # Create your views here.
 
 
@@ -92,9 +93,24 @@ def leads_collector(request, service_id):
             desc = desc,
             service_related = service
         )
-        mail_sender_receiver.delay("h","h","h")
+        for_service = Service.objects.get(id=service_id)
+        mail_sender_receiver.delay(for_service.email_address_associate, for_service.email_address_password, for_service.receiver_email, for_service.email_text_to_send_user, email, name, for_service.title, phone,desc)
         messages.success(request, 'Successfully Recieved!')
         # except Exception as e:
         #     messages.success(request, e)
 
     return redirect("service_detail_page", service_id)
+
+def newsletter_emails_collector(request):
+    if request.method == "POST":
+        email = request.POST.get('email_newsletter__input')
+        # try:
+        NewsLetterEmail.objects.create(
+            email_address = email,
+        )
+
+        messages.success(request, 'Successfully Recieved!')
+        # except Exception as e:
+        #     messages.success(request, e)
+
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))

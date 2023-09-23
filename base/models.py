@@ -11,6 +11,7 @@ class Service(models.Model):
     email_address_associate = models.EmailField(null=False, blank=False)
     email_address_password = models.TextField(null=False, blank=False)
     receiver_email = models.TextField(null=False, blank=False)
+    email_text_to_send_user = models.TextField(null=False, blank=False, default="Its that simple! You will be contacted by a qualified professional right away!")
 
     def __str__(self):
         return self.title
@@ -27,6 +28,13 @@ class Leads(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class NewsLetterEmail(models.Model):
+    email_address = models.EmailField(null=False, blank=False)
+
+    def __str__(self):
+        return self.email_address
 
 
 

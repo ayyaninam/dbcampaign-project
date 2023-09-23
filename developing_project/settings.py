@@ -14,7 +14,9 @@ SECRET_KEY = 'hb!)rd6_wq$08g=u^kg!k#@mj&+g6y&#2(gznpc7t^vq-6lxdx'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+
+ALLOWED_HOSTS = ['.vercel.app','now.sh','127.0.0.1','localhost']
+
 
 
 # Application definition
@@ -66,8 +68,12 @@ WSGI_APPLICATION = 'developing_project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': 'pDSy5qU9N6s63ypfEMjh',
+        'HOST': 'containers-us-west-195.railway.app',
+        'PORT': '5984',
     }
 }
 
@@ -174,9 +180,16 @@ LOGGING = {
 }
 
 
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATICFILES_DIRS = [os.path.join(BASE_DIR,"static")]
+
+
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
+
+
+
+
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 MEDIA_URL = '/media/'
 
@@ -191,5 +204,6 @@ EMIAL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587  
-EMAIL_HOST_USER = "ayaaninam555@gmail.com"
-EMAIL_HOST_PASSWORD = "jlsi xjww vfwo swsj"
+EMAIL_HOST_USER = ""
+EMAIL_HOST_PASSWORD = ""
+
