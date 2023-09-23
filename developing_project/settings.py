@@ -15,7 +15,7 @@ SECRET_KEY = 'hb!)rd6_wq$08g=u^kg!k#@mj&+g6y&#2(gznpc7t^vq-6lxdx'
 DEBUG = True
 
 
-ALLOWED_HOSTS = ['.vercel.app','now.sh','127.0.0.1','localhost']
+ALLOWED_HOSTS = ['*']
 
 
 
