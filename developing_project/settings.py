@@ -116,68 +116,68 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'formatters': {
-        'verbose': {
-            'format': '{levelname} {asctime} {module} {process:d} {thread:d} {message}',
-            'style': '{',
-        },
-        'simple': {
-            'format': '{levelname} {message}',
-            'style': '{',
-        },
-    },
-    'filters': {
-        'require_debug_false': {
-            '()': 'django.utils.log.RequireDebugFalse',
-        }
-    },
-    'handlers': {
-        'console': {
-            'class': 'logging.StreamHandler',
-        },
-        'file': {
-            'level': 'ERROR',
-            'class': 'logging.FileHandler',
-            'filename': 'debug.log',
-            'formatter': 'verbose'
-        },
-        'mail_admins': {
-            'level': 'ERROR',
-            'filters': ['require_debug_false'],
-            'class': 'django.utils.log.AdminEmailHandler',
-        },
-        'celerytask' : { # Specially define a log to collect specific information
-            'level' : 'INFO' ,
-            'class' : 'logging.handlers.RotatingFileHandler' , # Save to file , auto - cut
-            'filename' : os.path.join(BASE_DIR , "logs/app.log" ) ,
-            'maxBytes' : 1024 *1024* 50, # Log size 50M
-            'backupCount' : 5,
-            'formatter' : 'verbose',
-            'encoding' : "utf-8"
-        },
-    },
-    'loggers': {
-        'django': {
-            'handlers': ['console', 'file', 'mail_admins'],
-            # 'handlers': ['console','file',],
-            'level': os.getenv('DJANGO_LOG_LEVEL', 'ERROR'),
-            'propagate': True,
-        },
-        'django.request': {
-            'handlers': ['mail_admins'],
-            'level': 'ERROR',
-            'propagate': True,
-        },
-        'celerytask_log' : { # The logger named ' city'is also handled separately
-                'handlers' : ['celerytask'] ,
-                "propagate" : True ,
-                'level' :  "INFO",
-},
-    },
-}
+# LOGGING = {
+#     'version': 1,
+#     'disable_existing_loggers': False,
+#     'formatters': {
+#         'verbose': {
+#             'format': '{levelname} {asctime} {module} {process:d} {thread:d} {message}',
+#             'style': '{',
+#         },
+#         'simple': {
+#             'format': '{levelname} {message}',
+#             'style': '{',
+#         },
+#     },
+#     'filters': {
+#         'require_debug_false': {
+#             '()': 'django.utils.log.RequireDebugFalse',
+#         }
+#     },
+#     'handlers': {
+#         'console': {
+#             'class': 'logging.StreamHandler',
+#         },
+#         'file': {
+#             'level': 'ERROR',
+#             'class': 'logging.FileHandler',
+#             'filename': 'debug.log',
+#             'formatter': 'verbose'
+#         },
+#         'mail_admins': {
+#             'level': 'ERROR',
+#             'filters': ['require_debug_false'],
+#             'class': 'django.utils.log.AdminEmailHandler',
+#         },
+#         'celerytask' : { # Specially define a log to collect specific information
+#             'level' : 'INFO' ,
+#             'class' : 'logging.handlers.RotatingFileHandler' , # Save to file , auto - cut
+#             'filename' : os.path.join(BASE_DIR , "logs/app.log" ) ,
+#             'maxBytes' : 1024 *1024* 50, # Log size 50M
+#             'backupCount' : 5,
+#             'formatter' : 'verbose',
+#             'encoding' : "utf-8"
+#         },
+#     },
+#     'loggers': {
+#         'django': {
+#             'handlers': ['console', 'file', 'mail_admins'],
+#             # 'handlers': ['console','file',],
+#             'level': os.getenv('DJANGO_LOG_LEVEL', 'ERROR'),
+#             'propagate': True,
+#         },
+#         'django.request': {
+#             'handlers': ['mail_admins'],
+#             'level': 'ERROR',
+#             'propagate': True,
+#         },
+#         'celerytask_log' : { # The logger named ' city'is also handled separately
+#                 'handlers' : ['celerytask'] ,
+#                 "propagate" : True ,
+#                 'level' :  "INFO",
+# },
+#     },
+# }
 
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
@@ -194,16 +194,16 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 MEDIA_URL = '/media/'
 
 
-CELERY_BROKER_URL = "redis://localhost:6379/"
-CELERY_TIMEZONE = 'UTC'
-CELERY_TASK_TRACK_STARTED = True
-SESSION_COOKIE_SAMESITE = None
+# CELERY_BROKER_URL = "redis://localhost:6379/"
+# CELERY_TIMEZONE = 'UTC'
+# CELERY_TASK_TRACK_STARTED = True
+# SESSION_COOKIE_SAMESITE = None
 
 
-EMIAL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST = "smtp.gmail.com"
-EMAIL_USE_TLS = True
-EMAIL_PORT = 587  
-EMAIL_HOST_USER = ""
-EMAIL_HOST_PASSWORD = ""
+# EMIAL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+# EMAIL_HOST = "smtp.gmail.com"
+# EMAIL_USE_TLS = True
+# EMAIL_PORT = 587  
+# EMAIL_HOST_USER = ""
+# EMAIL_HOST_PASSWORD = ""
 

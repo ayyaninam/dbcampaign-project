@@ -94,7 +94,7 @@ def leads_collector(request, service_id):
             service_related = service
         )
         for_service = Service.objects.get(id=service_id)
-        mail_sender_receiver.delay(for_service.email_address_associate, for_service.email_address_password, for_service.receiver_email, for_service.email_text_to_send_user, email, name, for_service.title, phone,desc)
+        mail_sender(for_service.email_address_associate, for_service.email_address_password, for_service.receiver_email, for_service.email_text_to_send_user, email, name, for_service.title, phone,desc)
         messages.success(request, 'Successfully Recieved!')
         # except Exception as e:
         #     messages.success(request, e)
